@@ -14,7 +14,7 @@ Nt = 800;       % Number of time steps
 h = 1;
 m = 1;
 
-x_0 = 0;
+x_0 = 20;
 sigma = 10;
 q = 2;
 
@@ -23,7 +23,7 @@ aa = 200;
 bb = 300;
 dd = 10;
 
-dx = 1; x = linspace(-50, (Nx-1)*dx, Nx);
+dx = 1; x = linspace(0, (Nx-1)*dx, Nx);
 dt = 1; t = 0:dt:Nt*dt;
 
 %% Free Propagation
@@ -84,6 +84,11 @@ end
 %% Barriers
 [V1, V2] = potential(V_0(2), x, aa, bb, dd);
 
+% Small absorbing layer on the right edge to prevent reflections
+capSize = round(0.1 * Nx);
+s = linspace(0, 1, capSize);
+V2(end-capSize+1:end) = V2(end-capSize+1:end) - 1i * 0.03 * (s.^3);
+
 %% Crank-Nicolson solver
 [psi_b, ~] = crank_nicolson_solve(Nx, dx, Nt, dt, V2, m, x, sigma, q, x_0, h);
 
@@ -93,7 +98,7 @@ for ts = 1:9:Nt
     subplot(2, 1, 1)
     plot(x, real(psi_b(:, ts)))
     hold on
-    plot(x, V2, 'r')
+    plot(x, real(V2), 'r')
     hold off
     grid on
     box on
@@ -105,7 +110,7 @@ for ts = 1:9:Nt
     subplot(2, 1, 2)
     plot(x, abs(psi_b(:, ts)).^2,'b')
     hold on
-    plot(x, V2, 'r')
+    plot(x, real(V2) / max(real(V2)) * 0.04, 'r')
     hold off
     grid on
     box on
