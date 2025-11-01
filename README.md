@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains several physics-focused MATLAB projects and assignment solutions. The work includes frequency analysis of audio signals, normal mode analysis of a DNA model, a supercapacitor energy storage model, and a time-dependent Schrödinger equation solver (Crank–Nicolson).
+This repository contains several physics-focused MATLAB projects and assignment solutions. The work includes frequency analysis of audio signals, normal mode analysis of a DNA model, a supercapacitor energy storage model, and a time-dependent Schrödinger equation solver.
 
 ## Requirements
 
