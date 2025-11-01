@@ -1,5 +1,4 @@
-% Assignment 2. Task 1. Parts (c) - (e)
-% Names: Timur Holikov, Lea Ebenschweiger
+close all; clear; clc
 
 [y, SR] = audioread('single_tone.ogg');
 y_L = y(:,1); %import left channel

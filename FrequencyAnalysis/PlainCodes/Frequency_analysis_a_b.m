@@ -1,8 +1,4 @@
-% Assignment 2. Task 1. Parts (a) - (b)
-% Names: Timur Holikov, Lea Ebenschweiger
-
-% Warning: The execution time of these two subtasks can exceed 15 minutes (at least this is the case on my computer)
-
+close all; clear; clc
 [y, SR] = audioread('single_tone.ogg');
 y_L = y(:,1); %import left channel
 n = length(y_L);

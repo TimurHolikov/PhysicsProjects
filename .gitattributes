@@ -1,0 +1,5 @@
+# Mark exported HTML files as generated so they are excluded from GitHub language statistics
+FrequencyAnalysis/**/*.html linguist-generated=true
+FrequencyAnalysis/*.html linguist-generated=true
+TheTimeDependentSchrodingerEquation/**/*.html linguist-generated=true
+TheTimeDependentSchrodingerEquation/*.html linguist-generated=true
